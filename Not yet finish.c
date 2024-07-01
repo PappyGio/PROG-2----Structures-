@@ -45,7 +45,7 @@ int main(){
 	//Sort and display the products by products 
 	
 	printf("\nProducts sorted by Name:\n");
-	sortByName(GobuShop *shop);
+	sortByName(&Shop);
 	displayProducts(&Shop);
 	
 	return 0;
@@ -123,4 +123,3 @@ void sortByid(GobuShop *shop){
 		}
 	}
 }
-
