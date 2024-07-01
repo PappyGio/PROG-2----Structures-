@@ -19,7 +19,7 @@ typedef struct{
 //Function prototypes
 
 void initializeShop(GobuShop *shop);
-void populate(GobuShop *shop);
+void populateShop(GobuShop *shop);
 void displayProducts(GobuShop *shop);
 void sortByPrice(GobuShop *shop);
 void sortByName(GobuShop *shop);
@@ -32,21 +32,21 @@ int main(){
 	
 	
 	//Initialize Gobu shop 
-	initializeShop(&shop);
+	initializeShop(&Shop);
 	
 	//Populate shop
-	populateShop(&shop);
+	populateShop(&Shop);
 	
 	//Sort and display the products by price
 	printf("Productts sorted by Price:\n");
-	sortByPrice(&shop);
-	displayProducts(&shop);
+	sortByPrice(&Shop);
+	displayProducts(&Shop);
 	
 	//Sort and display the products by products 
 	
 	printf("\nProducts sorted by Name:\n");
 	sortByName(GobuShop *shop);
-	displayProducts(&shop);
+	displayProducts(&Shop);
 	
 	return 0;
 }
@@ -55,7 +55,7 @@ int main(){
 
 //Function to initialize shop 
 
-void intializeShop(GobuSjop *shop){
+void intializeShop(GobuShop *shop){
 	shop->count = 0;
 }
 
@@ -77,7 +77,7 @@ void populateShop(GobuShop *shop){
 
 void displayProducts(GobuShop *shop){
 	for(int i = 0; i < shop->count; i++){
-		printf("ID: %03d - Name: %s - Price: %.2f\n", shop->products[i]id, shop->products[i].name, shop->products[i].price);
+		printf("ID: %03d - Name: %s - Price: %.2f\n", shop->products[i].id, shop->products[i].name, shop->products[i].price);
 	}
 }
 
@@ -88,7 +88,7 @@ void sortByPrice(GobuShop *shop){
 		for(int j = 0; j <shop->count - i- 1; j++){
 			if(shop->products[j].price > shop->products[j + 1].price){
 				Product temp = shop->products[j];
-				shop->products[j] = shot->products[j+1];
+				shop->products[j] = shop->products[j+1];
 				shop->products[j+1] = temp;
 			}
 		}
@@ -97,6 +97,30 @@ void sortByPrice(GobuShop *shop){
 
 //Function to sort the products in gobu shop by name in alphabetical 
 
-void sortByName(GobuShp *shop){
-	
+void sortByName(GobuShop *shop){
+	for(int i = 0; i <shop->count - 1; i++){
+		for(int j = 0; j <shop->count - i- 1; j++){
+			if(strcmp(shop->products[j].name, shop->products[j + 1].name) > 0){
+				Product temp = shop->products[j];
+				shop->products[j] = shop->products[j+1];
+				shop->products[j+1] = temp;
+			}
+		}
+	}
+} 
+
+
+//Function to sort the products gobu shop id in descending order 
+
+void sortByid(GobuShop *shop){
+	for(int i = 0; i < shop->count-1; i++){
+		for(int j =0; i <shop->count - i - 1; i++){
+			if(shop->products[j].id < shop->products[j+1].id){
+				Product temp = shop->products[j];
+				shop->products[j] = shop->products[j + 1];
+				shop->products[j+1] = temp;
+			}
+		}
+	}
 }
+
